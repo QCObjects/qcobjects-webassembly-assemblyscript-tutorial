@@ -1,0 +1,19 @@
+{
+    "name": "@types/qcobjects-sdk",
+    "version": "2.4.1",
+    "description": "TypeScript definitions for QCObjects",
+    "homepage": "https://qcobjects.dev",
+    "license": "LGPL-3.0",
+    "author": "Jean Machuca <correojean@gmail.com>",
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/QCObjects/-types-qcobjects-sdk.git"
+    },
+    "scripts": {},
+    "typeScriptVersion": "5.0",
+    "devDependencies": {
+        "@types/qcobjects": "github:QCObjects/-types-qcobjects"
+    }
+}
