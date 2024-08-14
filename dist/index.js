@@ -18,5 +18,5 @@ const imports = {
         }
     },
 };
-const wasmModule = loader_1.default.instantiateSync(node_fs_1.default.readFileSync(__dirname + "/untouched.wasm"), imports);
+const wasmModule = loader_1.default.instantiateSync(node_fs_1.default.readFileSync(__dirname + "/build/untouched.wasm"), imports);
 module.exports = wasmModule.exports;
