@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "node tests",
+    "build:ts": "npx tsc",
+    "build:ts-types": "npx tsc --project tsconfig.d.json",
     "asbuild:untouched": "asc assembly/index.ts --target debug",
     "asbuild:optimized": "asc assembly/index.ts --target release",
     "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
-    "build": "npm run asbuild"
+    "build": "npm run build:ts-types && npm run build:ts && npm run asbuild"
   },
   "author": "",
   "license": "ISC",
@@ -16,9 +18,16 @@
     "@assemblyscript/loader": "^0.19.23"
   },
   "devDependencies": {
+    "@types/qcobjects": "github:QCObjects/-types-qcobjects",
+    "@types/qcobjects-sdk": "github:QCObjects/-types-qcobjects-sdk",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
     "assemblyscript": "^0.19.23",
+    "eslint": "^9.9.0",
     "qcobjects": "^2.4.99",
     "qcobjects-cli": "^2.4.65",
-    "qcobjects-sdk": "^2.4.64"
+    "qcobjects-sdk": "^2.4.64",
+    "qcobjects-tsconfig": "^2.4.10",
+    "typescript": "^5.5.4"
   }
 }
