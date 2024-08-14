@@ -1,3 +1,3 @@
 const myModule = require("../build");
-myModule.sayHello();
+myModule.asyncTask();
 console.log("ok");

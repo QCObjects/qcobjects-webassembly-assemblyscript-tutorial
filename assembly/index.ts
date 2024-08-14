@@ -1,6 +1,3 @@
-declare function helloWorld ():void;
-
-export function sayHello ():void {
-  helloWorld();
-
+export function myExportedFunctionThatTakesAString(value: string): string {
+  return "AsBind: " + value;
 }

@@ -1,18 +1,16 @@
 import fs from "node:fs";
-import loader from "@assemblyscript/loader";
 import { shortCode } from "qcobjects";
+const AsBind = require("as-bind/dist/as-bind.cjs.js");
 
-const imports = {
-  index: {
-    helloWorld ():void {
-      console.log(`Hello World! This is your key: ${shortCode()}`)
-    }
-  },
-  env: {
-    abort(_msg: any, _file: any, line: string, column: string):void {
-      console.error("abort called at main.ts:" + line + ":" + column);
-    }
-  },
+const wasm = fs.readFileSync(__dirname + "/optimized.wasm")
+
+export const asyncTask = async () => {
+  const asBindInstance = await AsBind.instantiate(wasm);
+
+  // You can now use your wasm / as-bind instance!
+  const response = asBindInstance.exports.myExportedFunctionThatTakesAString(
+    "Hello World!"
+  );
+  console.log(response); // AsBind: Hello World!
 };
-const wasmModule = loader.instantiateSync(fs.readFileSync(__dirname + "/untouched.wasm"), imports as any);
-module.exports = wasmModule.exports;
+
